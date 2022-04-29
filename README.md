@@ -48,3 +48,10 @@ hooks.Register("test", (args) => {
 	return true;
 });
 ```
+
+## Call Logs
+
+You can grab the call logs. These will contain the hook name, arguments, when and any exceptions brought up during execution.
+```csharp
+hooks.GetLogs();
+```
