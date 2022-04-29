@@ -41,6 +41,14 @@ public class SharpHooking
         AddDefinition(name, new HookDefinition(callback, weight, tags));
         return this;
     }
+    public virtual SharpHooking Register(string name, Action callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
+        return this;
+    }
+
     public virtual SharpHooking Register(string name, Action<object[]> callback, int weight = 0, params string[] tags)
     {
         name = name.ToLower();
@@ -48,6 +56,14 @@ public class SharpHooking
         AddDefinition(name, new HookDefinition(callback, weight, tags));
         return this;
     }
+    public virtual SharpHooking Register(string name, Action<object[]> callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
+        return this;
+    }
+
     public virtual SharpHooking Register(string name, Func<object> callback, int weight = 0, params string[] tags)
     {
         name = name.ToLower();
@@ -55,6 +71,14 @@ public class SharpHooking
         AddDefinition(name, new HookDefinition(callback, weight, tags));
         return this;
     }
+    public virtual SharpHooking Register(string name, Func<object> callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
+        return this;
+    }
+
     public virtual SharpHooking Register(string name, Func<object[]> callback, int weight = 0, params string[] tags)
     {
         name = name.ToLower();
@@ -62,6 +86,14 @@ public class SharpHooking
         AddDefinition(name, new HookDefinition(callback, weight, tags));
         return this;
     }
+    public virtual SharpHooking Register(string name, Func<object[]> callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
+        return this;
+    }
+
     public virtual SharpHooking Register(string name, Func<Task<object>> callback, int weight = 0, params string[] tags)
     {
         name = name.ToLower();
@@ -69,11 +101,26 @@ public class SharpHooking
         AddDefinition(name, new HookDefinition(callback, weight, tags));
         return this;
     }
+    public virtual SharpHooking Register(string name, Func<Task<object>> callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
+        return this;
+    }
+
     public virtual SharpHooking Register(string name, Func<object[], Task<object>> callback, int weight = 0, params string[] tags)
     {
         name = name.ToLower();
         CheckAndCreateHookCollection(name);
         AddDefinition(name, new HookDefinition(callback, weight, tags));
+        return this;
+    }
+    public virtual SharpHooking Register(string name, Func<object[], Task<object>> callback, params string[] tags)
+    {
+        name = name.ToLower();
+        CheckAndCreateHookCollection(name);
+        AddDefinition(name, new HookDefinition(callback, 0, tags));
         return this;
     }
 

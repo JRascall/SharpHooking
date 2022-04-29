@@ -33,20 +33,18 @@ You can use tags to group hooks for versioning and so forth.
 
 ### Registering
 ```csharp
-IList<string> tags = new List<string> { "v1" };
-hooks.Register("test", (args) => {}, 0, tags);
+hooks.Register("test", (args) => {}, "v1");
 ```
 
 ### Calling
 ```csharp
-IList<string> tags = new List<string> { "v1" };
-hooks.Call("test", tags);
+hooks.Call("test", new List<string> { "v1" });
 ```
-### Canceling hooks
+## Cancelling hooks
 You can cancel a hook event with returning true.
 
 ```csharp
-hooks.Register("test", async (args) => {
+hooks.Register("test", (args) => {
 	return true;
 });
 ```
