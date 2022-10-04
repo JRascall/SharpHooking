@@ -22,6 +22,11 @@ public class SharpHooking
         return new SharpHooking();
     }
 
+    public static SharpHooking Create(Action<HookingOptions> options)
+    {
+        return new SharpHooking(options);
+    }
+
     public SharpHooking()
     {
         options.ShowCalls = false;
@@ -31,6 +36,8 @@ public class SharpHooking
     public SharpHooking(Action<HookingOptions> setup)
     {
         setup(options);
+        
+        options?.Logger.LogInformation("Sharp Hooking loaded");
     }
 
     public virtual SharpHooking Register(string name, Action callback, int weight = 0, params string[] tags)
