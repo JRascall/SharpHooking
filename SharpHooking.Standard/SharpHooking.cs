@@ -147,7 +147,6 @@ public class SharpHooking
     {
         int count = 0;
         name = name.ToLower();
-        options.Logger?.LogInformation(name);
         hooks.TryGetValue(name, out var hooksEntries);
         if (hooksEntries != null) count = RunThroughCallbacks(name, hooksEntries, args);
         else
@@ -161,7 +160,6 @@ public class SharpHooking
     {
         int count = 0;
         name = name.ToLower();
-        options.Logger?.LogInformation(name);
         hooks.TryGetValue(name, out var hooksEntries);
         if (hooksEntries != null) count = RunThroughCallbacks(name, hooksEntries.Where(x => tags.Any(y => x.tags.Contains(y))).ToList(), args);
         else
@@ -175,7 +173,6 @@ public class SharpHooking
     {
         int count = 0;
         name = name.ToLower();
-        options.Logger?.LogInformation(name);
         hooks.TryGetValue(name, out var hooksEntries);
         if (hooksEntries != null)  count = await RunThroughCallbacksAsync(name, hooksEntries, args);
         else
@@ -189,7 +186,6 @@ public class SharpHooking
     {
         int count = 0;
         name = name.ToLower();
-        options.Logger?.LogInformation(name);
         hooks.TryGetValue(name, out IList<HookDefinition> hooksEntries);
         if(hooksEntries != null) count = await RunThroughCallbacksAsync(name, hooksEntries.Where(x => tags.Any(y => x.tags.Contains(y))).ToList(), args);
         else
