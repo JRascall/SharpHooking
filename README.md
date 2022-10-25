@@ -1,4 +1,7 @@
 # SharpHooking
+
+[![NuGet](https://img.shields.io/nuget/v/SharpHooking.svg?label=SharpHooking)](https://www.nuget.org/packages/SharpHooking)
+
 A little library to allow you to call/register hooks.
 
 ## Creating
